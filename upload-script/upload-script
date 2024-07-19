@@ -1,10 +1,12 @@
+#!/bin/bash
+
 #  
 # https://github.com/Maaxxxii
 # Some opensrc scripts, cause why not
 #
 
 eval "$(ssh-agent -s)"
-ssh-add $HOME/.ssh/id_rsa 
+ssh-add "$HOME"/.ssh/id_rsa 
 
 contrum_update_apple() {
 
@@ -15,14 +17,14 @@ contrum_update_apple() {
 
 	# Example
 	echo "Starting update..."
-	scp -P 22 -i $sshkey -r $repository_path/paper/target/Apple.jar "$server1":"$upload_path"/Apple/main/Apple.jar
-	scp -P 22 -i $sshkey  -r $repository_path/bungeecord/target/apple-proxy.jar "$server1":"$upload_path"/apple-proxy/main/apple-proxy.jar
-	scp -P 22 -i $sshkey  -r $repository_path/addons/battle-addon/target/battle-addon-3.0-SNAPSHOT.jar "$server1":"$upload_path"/battle-addon/main/battle-addon.jar
-	scp -P 22 -i $sshkey  -r $repository_path/addons/queue-addon/target/queue-addon.jar "$server1":"$upload_path"/queue-addon/main/queue-addon.jar
-	scp -P 22 -i $sshkey  -r $repository_path/addons/staff-addon/target/staff-addon.jar "$server1":"$upload_path"/staff-addon/main/staff-addon.jar
-	scp -P 22 -i $sshkey  -r $repository_path/addons/social-addon/social-core/target/social-core-3.0-SNAPSHOT.jar "$server1":"$upload_path"/social-addon/main/social-addon.jar
-	scp -P 22 -i $sshkey  -r $repository_path/addons/profile-addon/target/profile-addon-3.0-SNAPSHOT.jar "$server1":"$upload_path"/profile-addon/main/profile-addon.jar
-	scp -P 22 -i $sshkey  -r $repository_path/addons/cosmetics-addon/cosmetics-core/target/core-cosmetics-3.0-SNAPSHOT.jar  "$server1":"$upload_path"/cosmetic-addon/main/cosmetic-addon.jar
+	scp -P 22 -i "$sshkey" -r "$repository_path"/paper/target/Apple.jar "$server1":"$upload_path"/Apple/main/Apple.jar
+	scp -P 22 -i "$sshkey" -r "$repository_path"/bungeecord/target/apple-proxy.jar "$server1":"$upload_path"/apple-proxy/main/apple-proxy.jar
+	scp -P 22 -i "$sshkey" -r "$repository_path"/addons/battle-addon/target/battle-addon-3.0-SNAPSHOT.jar "$server1":"$upload_path"/battle-addon/main/battle-addon.jar
+	scp -P 22 -i "$sshkey" -r "$repository_path"/addons/queue-addon/target/queue-addon.jar "$server1":"$upload_path"/queue-addon/main/queue-addon.jar
+	scp -P 22 -i "$sshkey" -r "$repository_path"/addons/staff-addon/target/staff-addon.jar "$server1":"$upload_path"/staff-addon/main/staff-addon.jar
+	scp -P 22 -i "$sshkey" -r "$repository_path"/addons/social-addon/social-core/target/social-core-3.0-SNAPSHOT.jar "$server1":"$upload_path"/social-addon/main/social-addon.jar
+	scp -P 22 -i "$sshkey" -r "$repository_path"/addons/profile-addon/target/profile-addon-3.0-SNAPSHOT.jar "$server1":"$upload_path"/profile-addon/main/profile-addon.jar
+	scp -P 22 -i "$sshkey" -r "$repository_path"/addons/cosmetics-addon/cosmetics-core/target/core-cosmetics-3.0-SNAPSHOT.jar  "$server1":"$upload_path"/cosmetic-addon/main/cosmetic-addon.jar
 	echo "Finished update on Server 1"
 
 }
